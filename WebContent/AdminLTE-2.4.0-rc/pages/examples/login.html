@@ -26,6 +26,27 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  <script>
+  	function login() {
+  		var form = document.login_form;
+  		if (chkEmail(form.email.value) && chkPassword(form.password.value)) {
+  			alert('로그인 성공');
+  			return true;
+  		} else {
+  			alert('로그인 실패');
+  			return false;
+  		}
+  	}
+  	
+  	function chkEmail(email) {
+  		return email == "hanguk@naver.com";
+  	}
+  	
+  	function chkPassword(password) {
+  		return password == "1234";
+  	}
+  </script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -36,13 +57,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index2.html" method="post">
+    <form name="login_form" action="../../index2.html" method="post" onsubmit="return login();">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" name="email" class="form-control" placeholder="Email" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -55,7 +76,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" id="Btn">
+          	Sign In</button>
         </div>
         <!-- /.col -->
       </div>
